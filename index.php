@@ -1,11 +1,7 @@
 <?php 
 
-include ("config/connect.php");
-
-function getUsers() {
-    $result = $connection->query("select * from users") or die ($connection->error);
-    return $result->fetch_array(MYSQLI_ASSOC);
-}
+include "config/connect.php";
+$result = $connection->query("select * from users") or die ($connection->error);
 
 ?>
 
@@ -20,7 +16,7 @@ function getUsers() {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (getUsers() as $users) { ?>
+                <?php while ($users = $result->fetch_array(MYSQLI_ASSOC)) { ?>
                 <tr>
                     <td><?=$users["user_id"]?></td>
                     <td><?=$users["user_name"]?></td>
