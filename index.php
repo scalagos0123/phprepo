@@ -3,7 +3,7 @@
 include ("config/connect.php");
 
 function getUsers() {
-    $result = $connection->query("select * from users");
+    $result = $connection->query("select * from users") or die ($connection->error);
     return $result->fetch_array(MYSQLI_ASSOC);
 }
 
