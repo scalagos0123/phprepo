@@ -4,7 +4,7 @@ include ("config/connect.php");
 
 function getUsers() {
     $result = $connection->query("select * from users");
-    return $result->fetch_row(MYSQLI_ASSOC);
+    return $result->fetch_array(MYSQLI_ASSOC);
 }
 
 ?>
